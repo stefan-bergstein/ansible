@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  gather_facts: false
+  
+  tasks:
+    - name: Ping host
+      ping:
+
+    - name: Some command 
+      shell:
+        cmd: uname -a
+        chdir: /tmp
+        
