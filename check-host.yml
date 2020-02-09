@@ -10,5 +10,10 @@
     - name: Some command 
       shell:
         cmd: uname -a
-        chdir: /tmp
+        chdir: /tmp   
+        
+    - name: Create invstack
+      template:
+        src: instackenv-template.json.j2
+        dest: instackenv.json
         
