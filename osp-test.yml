@@ -1,0 +1,12 @@
+---
+
+- hosts: osp
+  gather_facts: false
+  
+  tasks:
+    - name: Ping host
+      ping:
+
+    - name: baremetal node list 
+      shell: 
+        cmd: source ~/stackrc && openstack baremetal node list
