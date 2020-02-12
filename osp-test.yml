@@ -8,5 +8,16 @@
       ping:
 
     - name: baremetal node list 
-      shell: 
-        cmd: source ~/stackrc && openstack baremetal node list
+      shell: |
+        source ~/stackrc
+        openstack baremetal node list
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: hypervisor list 
+      shell: |
+        source ~/overcloudrc
+        openstack hypervisor list
+      register: out
+    - debug: var=out.stdout_lines
+
