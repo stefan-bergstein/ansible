@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  gather_facts: false
+  
+  tasks:
+    - name: Ping host
+      ping:
+
+    - name: baremetal node list 
+      shell: |
+        source ~/stackrc
+        openstack baremetal node list
+      register: out
+    - debug: var=out.stdout_lines
+    
+    - name: hypervisor list 
+      shell: |
+        source ~/overcloudrc
+        openstack hypervisor list
+      register: out
+    - debug: var=out.stdout_lines
+
